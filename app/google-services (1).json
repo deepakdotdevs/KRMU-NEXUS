@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "691643332209",
+    "project_id": "krmu-nexus",
+    "storage_bucket": "krmu-nexus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691643332209:android:af35d981d56a9b1b734dd0",
+        "android_client_info": {
+          "package_name": "com.krmu.nexus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAim0Q-PlFYrf5jr4Lac1FdBdqRlHyu4Lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
