@@ -12,7 +12,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.krmunexus"
+        applicationId = "com.krmu.nexus"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -39,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 }
 
@@ -80,5 +81,6 @@ dependencies {
     // Coroutines -> To create applications that perform multiple tasks at once
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-
+    // Material Design
+    implementation("com.google.android.material:material:1.13.0")
 }
