@@ -75,7 +75,7 @@ dependencies {
 
     // For Room Database
     implementation("androidx.room:room-runtime:2.8.4")
-    implementation("androidx.room:room-compiler:2.8.4")
+    kapt("androidx.room:room-compiler:2.8.4")
     implementation("androidx.room:room-ktx:2.8.4")
 
     // Coroutines -> To create applications that perform multiple tasks at once
@@ -83,4 +83,8 @@ dependencies {
 
     // Material Design
     implementation("com.google.android.material:material:1.11.0")
+
+    configurations.all {
+        exclude(group = "com.intellij", module = "annotations")
+    }
 }
