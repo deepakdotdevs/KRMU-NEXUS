@@ -65,13 +65,13 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
 
     // For Architecture Components
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
     implementation("androidx.fragment:fragment-ktx:1.8.9")
 
     // For Navigation Component
-    implementation("androidx.navigation:navigation-fragment-ktx:2.9.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.9.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     // For Room Database
     implementation("androidx.room:room-runtime:2.8.4")
@@ -82,5 +82,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Material Design
-    implementation("com.google.android.material:material:1.13.0")
+    implementation("com.google.android.material:material:1.11.0")
 }
