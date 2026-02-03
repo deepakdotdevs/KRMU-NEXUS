@@ -20,4 +20,8 @@
         android:id="@+id/action_splash_to_studentDashboard"
         app:destination="@+id/studentDashboardFragment"/>
     </fragment>
+
+    <fragment
+        android:id="@+id/roleSelectionFragment"
+        android:name=""
 </navigation>
