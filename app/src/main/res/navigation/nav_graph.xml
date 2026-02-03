@@ -23,5 +23,17 @@
 
     <fragment
         android:id="@+id/roleSelectionFragment"
-        android:name=""
+        android:name="com.krmu.nexus.ui.role.RoleSelectionFragment"
+        android:label="Role Selection"
+        tools:layout="@layout/fragment_role_selection"/>
+    <fragment
+        android:id="@+id/teacherDashboardFragment"
+        android:name="com.krmu.nexus.ui.teacher.TeacherDashboardFragment"
+        android:label="Teacher Dashboard"
+        tools:layout="@layout/fragment_teacher_dashboard"/>
+    <fragment
+        android:id="@+id/studentDashboardFragment"
+        android:name="com.krmu.nexus.ui.student.StudentDashboardFragment"
+        android:label="Student Dashboard"
+        tools:layout="@layout/fragment_student_dashboard"/>
 </navigation>
