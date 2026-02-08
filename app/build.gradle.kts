@@ -11,6 +11,13 @@ android {
     namespace = "com.krmu.nexus"
     compileSdk = 36
 
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
+
+
     defaultConfig {
         applicationId = "com.krmu.nexus"
         minSdk = 24

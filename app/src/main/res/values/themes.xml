@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="Theme.KRMUNexus" parent="android:Theme.Material.Light.NoActionBar" />
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.KRMUNexus" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+    </style>
 </resources>
