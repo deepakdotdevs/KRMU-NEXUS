@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.krmu.nexus.R
 import com.krmu.nexus.databinding.FragmentRoleSelectionBinding
+import com.krmu.nexus.viewmodel.AuthViewModel
 import java.security.AuthProvider
 
 // TODO: Rename parameter arguments, choose names that match

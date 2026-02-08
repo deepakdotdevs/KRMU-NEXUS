@@ -25,7 +25,15 @@
         android:id="@+id/roleSelectionFragment"
         android:name="com.krmu.nexus.ui.role.RoleSelectionFragment"
         android:label="Role Selection"
-        tools:layout="@layout/fragment_role_selection"/>
+        tools:layout="@layout/fragment_role_selection">
+        <action
+            android:id="@+id/action_roleSelection_to_login"
+            app:destination="@+id/loginFragment">
+            <argument
+                name="role"
+                app:argType="string"/>
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/teacherDashboardFragment"
         android:name="com.krmu.nexus.ui.teacher.TeacherDashboardFragment"
