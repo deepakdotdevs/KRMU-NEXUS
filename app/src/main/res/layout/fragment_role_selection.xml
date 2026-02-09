@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.117" />
 
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -28,16 +29,17 @@
         android:text="Choose Your Role"
         android:textSize="32sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RoleSelectionPNG" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.557" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTeacher"
-        android:layout_width="287dp"
-        android:layout_height="64dp"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
         android:background="@drawable/ripple_teacher"
 
         android:elevation="6dp"
@@ -60,8 +62,8 @@
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/roleDivider"
-        android:layout_width="170dp"
-        android:layout_height="3dp"
+        android:layout_width="120dp"
+        android:layout_height="2dp"
         android:layout_marginVertical="8dp"
         app:dividerColor="#000000"
         app:layout_constraintBottom_toTopOf="@id/btnStudent"
@@ -73,8 +75,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStudent"
-        android:layout_width="287dp"
-        android:layout_height="64dp"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
         android:background="@drawable/ripple_student"
 
         android:elevation="6dp"
@@ -90,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859"
+        app:layout_constraintVertical_bias="0.831"
         app:shapeAppearanceOverlay="@null"
         app:strokeColor="@null"
         app:strokeWidth="0dp" />
@@ -104,7 +106,8 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="0.958" />
 </androidx.constraintlayout.widget.ConstraintLayout>

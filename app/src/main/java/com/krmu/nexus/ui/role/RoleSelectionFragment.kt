@@ -42,16 +42,20 @@ class RoleSelectionFragment : Fragment(R.layout.fragment_role_selection) {
         _binding = FragmentRoleSelectionBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
 
-        binding.btnStudent.setOnClickListener {
-            viewModel.setRole("student")
-            val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("student")
-            findNavController().navigate(action)
+        binding.btnTeacher.setOnClickListener { view ->
+            popAnimation(view) {
+                viewModel.setRole("teacher")
+                val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("teacher")
+                findNavController().navigate(action)
+            }
         }
 
-        binding.btnTeacher.setOnClickListener {
-            viewModel.setRole("teacher")
-            val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("teacher")
-            findNavController().navigate(action)
+        binding.btnStudent.setOnClickListener { view ->
+            popAnimation(view) {
+                viewModel.setRole("student")
+                val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("student")
+                findNavController().navigate(action)
+            }
         }
 
         val textView = binding.titleText
@@ -73,8 +77,33 @@ class RoleSelectionFragment : Fragment(R.layout.fragment_role_selection) {
             }
         }
     }
+    private fun popAnimation(view: View, onEnd: () -> Unit) {
 
+        view.animate()
+            .scaleX(0.85f)
+            .scaleY(0.85f)
+            .setDuration(100)
+            .withEndAction {
 
+                view.animate()
+                    .scaleX(1.08f)
+                    .scaleY(1.08f)
+                    .setDuration(120)
+                    .withEndAction {
+
+                        view.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .withEndAction {
+                                onEnd()   // 👈 NAVIGATION WILL HAPPEN HERE
+                            }
+                            .start()
+                    }
+                    .start()
+            }
+            .start()
+    }
 
 
     override fun onDestroyView() {
