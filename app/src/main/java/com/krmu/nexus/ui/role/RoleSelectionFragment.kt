@@ -17,6 +17,8 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,21 +44,22 @@ class RoleSelectionFragment : Fragment(R.layout.fragment_role_selection) {
         _binding = FragmentRoleSelectionBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
 
+
+
         binding.btnTeacher.setOnClickListener { view ->
             popAnimation(view) {
                 viewModel.setRole("teacher")
-                val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("teacher")
-                findNavController().navigate(action)
+                findNavController().navigate(R.id.action_roleSelection_to_teacherLoginFragment)
             }
         }
 
         binding.btnStudent.setOnClickListener { view ->
             popAnimation(view) {
                 viewModel.setRole("student")
-                val action = RoleSelectionFragmentDirections.actionRoleSelectionToLogin("student")
-                findNavController().navigate(action)
+                findNavController().navigate(R.id.action_roleSelection_to_studentLoginFragment)
             }
         }
+
 
         val textView = binding.titleText
         textView.viewTreeObserver.addOnGlobalLayoutListener {

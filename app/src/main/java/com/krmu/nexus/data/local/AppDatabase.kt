@@ -1,10 +1,15 @@
-package com.krmu.nexus.data.local
+package com.krmu.nexus.data.local.entity
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.krmu.nexus.data.local.entity.UserEntity
+import com.krmu.nexus.data.local.dao.UserDao
 
-@Database(entities = [UserEntity::class], version = 1)
+@Database(
+    entities = [UserEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class AppDatabase : RoomDatabase() {
-    // there we add tables
+    abstract fun userDao(): UserDao
 }

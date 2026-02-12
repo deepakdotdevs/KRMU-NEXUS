@@ -27,20 +27,37 @@
         android:label="Role Selection"
         tools:layout="@layout/fragment_role_selection">
         <action
-            android:id="@+id/action_roleSelection_to_login"
-            app:destination="@+id/loginFragment">
-        </action>
+            android:id="@+id/action_roleSelection_to_studentLoginFragment"
+            app:destination="@id/studentLoginFragment" />
+
+        <action
+            android:id="@+id/action_roleSelection_to_teacherLoginFragment"
+            app:destination="@id/teacherLoginFragment" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.krmu.nexus.ui.auth.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login">
-        <argument
-            android:name="role"
-            app:argType="string"/>
+        android:id="@+id/studentLoginFragment"
+        android:name="com.krmu.nexus.ui.auth.StudentLoginFragment"
+        android:label="Student Login"
+        tools:layout="@layout/fragment_student_login">
+
+        <action
+            android:id="@+id/action_studentLoginFragment_to_studentDashboardFragment"
+            app:destination="@id/studentDashboardFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/teacherLoginFragment"
+        android:name="com.krmu.nexus.ui.auth.TeacherLoginFragment"
+        android:label="Teacher Login"
+        tools:layout="@layout/fragment_teacher_login">
+
+        <action
+            android:id="@+id/action_teacherLoginFragment_to_teacherDashboardFragment"
+            app:destination="@id/teacherDashboardFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/teacherDashboardFragment"
         android:name="com.krmu.nexus.ui.teacher.TeacherDashboardFragment"

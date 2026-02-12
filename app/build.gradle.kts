@@ -67,10 +67,13 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+
 
     // For Firebase
-    implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
-
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-auth-ktx")
     // For Architecture Components
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.10.0")
@@ -87,9 +90,23 @@ dependencies {
 
     // Coroutines -> To create applications that perform multiple tasks at once
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 
     // Material Design
     implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
+    implementation("androidx.core:core-ktx:1.12.0")
+
+    implementation("androidx.fragment:fragment-ktx:1.7.1")
+
+// Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+
 
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")
