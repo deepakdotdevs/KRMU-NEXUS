@@ -1,10 +1,14 @@
 package com.krmu.nexus.ui.auth
 
+import android.graphics.Color
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -43,6 +47,7 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
         }
 
         observeViewModel()
+        applyGradient(binding.titleStudent)
     }
 
     private fun observeViewModel() {
@@ -60,4 +65,30 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
             }
         }
     }
+
+    private fun applyGradient(textView: TextView) {
+
+        textView.viewTreeObserver.addOnGlobalLayoutListener {
+
+            val width = textView.width.toFloat()
+
+            if (width > 0) {
+
+                val shader = LinearGradient(
+                    0f, 0f,
+                    width, 0f,
+                    intArrayOf(
+                        Color.parseColor("#FF6EC7"),  // Pink
+                        Color.parseColor("#FF8C42"),  // Orange
+                        Color.parseColor("#FFC94D")   // Yellow
+                    ),
+                    null,
+                    Shader.TileMode.CLAMP
+                )
+
+                textView.paint.shader = shader
+            }
+        }
+    }
+
 }
