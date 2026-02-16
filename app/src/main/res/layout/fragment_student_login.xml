@@ -25,7 +25,7 @@
         android:background="@drawable/ripple_student"
         android:elevation="6dp"
         android:fontFamily="@font/arapey_regular"
-        android:text="Login as Student"
+        android:text="Login"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="26sp"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintVertical_bias="0.913"
         app:shapeAppearanceOverlay="@null"
         app:strokeColor="@null"
         app:strokeWidth="0dp" />
@@ -46,23 +46,41 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="452dp"
+        android:background="@drawable/input_ripple"
         android:hint="Student Email"
-        app:boxStrokeColor="#0D47A1"
-        app:hintTextColor="#0D47A1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/input_stroke_selector"
+        app:hintTextColor="@color/input_hint_selector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etStudentEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:background="@null"
             android:inputType="textEmailAddress"
-            android:textColor="#0D47A1" />
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/roleDivider"
+        android:layout_width="180dp"
+        android:layout_height="2dp"
+        android:layout_marginVertical="8dp"
+        app:dividerColor="#545454"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentEmailLayout"
+        app:layout_constraintStart_toStartOf="parent"
+         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/studentPasswordLayout"
@@ -70,21 +88,32 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="536dp"
+        android:background="@drawable/input_ripple"
         android:hint="Password"
-        app:boxStrokeColor="#0D47A1"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/input_stroke_selector"
         app:endIconMode="password_toggle"
-        app:hintTextColor="#0D47A1"
+        app:hintTextColor="@color/input_hint_selector"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/studentEmailLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etStudentPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:background="@null"
             android:inputType="textPassword"
-            android:textColor="#0D47A1" />
+            android:textColor="#212121"
+            android:textSize="16sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
