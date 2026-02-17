@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.krmu.nexus.R
 import com.krmu.nexus.databinding.FragmentTeacherLoginBinding
+import com.krmu.nexus.utils.SessionManager
 import com.krmu.nexus.viewmodel.AuthViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,11 +30,13 @@ class TeacherLoginFragment : Fragment(R.layout.fragment_teacher_login) {
     private var _binding: FragmentTeacherLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: AuthViewModel
+    private lateinit var sessionManager: SessionManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTeacherLoginBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
+        sessionManager = SessionManager(requireContext())
 
         binding.btnLoginTeacher.setOnClickListener {
             val email = binding.etTeacherEmail.text.toString().trim()
@@ -45,18 +48,18 @@ class TeacherLoginFragment : Fragment(R.layout.fragment_teacher_login) {
     }
 
     private fun observeViewModel() {
+        viewModel.userData.observe(viewLifecycleOwner) { pair ->
+            val uid = pair.first
+            val role = pair.second
+            sessionManager.saveUserSession(uid, role)
+            findNavController().navigate(R.id.action_teacherLoginFragment_to_teacherDashboardFragment)
+        }
         viewModel.loading.observe(viewLifecycleOwner) {
             // Optional: show progress bar later
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        }
-
-        viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
-            if (success) {
-                findNavController().navigate(R.id.action_teacherLoginFragment_to_teacherDashboardFragment)
-            }
         }
     }
 }
