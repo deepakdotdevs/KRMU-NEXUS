@@ -11,9 +11,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.krmu.nexus.R
 import com.krmu.nexus.databinding.FragmentStudentLoginBinding
+import com.krmu.nexus.utils.SessionManager
 import com.krmu.nexus.viewmodel.AuthViewModel
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,11 +36,13 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
     private var _binding: FragmentStudentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: AuthViewModel
+    private lateinit var sessionManager: SessionManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentStudentLoginBinding.bind(view)
         viewModel = ViewModelProvider(requireActivity())[AuthViewModel::class.java]
+        sessionManager = SessionManager(requireContext())
 
         binding.btnLoginStudent.setOnClickListener {
             val email = binding.etStudentEmail.text.toString().trim()
@@ -51,6 +55,12 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
     }
 
     private fun observeViewModel() {
+        viewModel.userData.observe(viewLifecycleOwner) { pair ->
+            val uid = pair.first
+            val role = pair.second
+            sessionManager.saveUserSession(uid, role)
+            findNavController().navigate(R.id.action_studentLoginFragment_to_studentDashboardFragment)
+        }
         viewModel.loading.observe(viewLifecycleOwner) {
             // Add a ProgressBar in XML later if you want
         }
