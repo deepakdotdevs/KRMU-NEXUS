@@ -8,6 +8,8 @@ import kotlinx.coroutines.launch
 class AuthViewModel : ViewModel() {
 
     private val repository = AuthRepository()
+    val userData = MutableLiveData<Pair<String, String>>()
+
 
     // 🔹 Role Selection
     private val _role = MutableLiveData<String>()
@@ -35,11 +37,9 @@ class AuthViewModel : ViewModel() {
 
             loading.value = false
 
-            result.onSuccess {
-                Log.d("LOGIN_SUCCESS", "User logged in!")
-                loginSuccess.value = true
+            result.onSuccess { pair ->
+                userData.value = pair
             }.onFailure {
-                Log.e("LOGIN_ERROR", "Firebase login failed: ${it.message}", it)
                 errorMessage.value = it.message ?: "Login failed"
             }
         }
