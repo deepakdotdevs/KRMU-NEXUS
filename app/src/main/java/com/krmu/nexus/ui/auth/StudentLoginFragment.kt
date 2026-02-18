@@ -59,7 +59,14 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
             val uid = pair.first
             val role = pair.second
             sessionManager.saveUserSession(uid, role)
-            findNavController().navigate(R.id.action_studentLoginFragment_to_studentDashboardFragment)
+            if (findNavController().currentDestination?.id ==
+                R.id.studentLoginFragment) {
+
+                findNavController().navigate(
+                    R.id.action_studentLoginFragment_to_studentDashboardFragment
+                )
+            }
+
         }
         viewModel.loading.observe(viewLifecycleOwner) {
             // Add a ProgressBar in XML later if you want
@@ -67,12 +74,6 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        }
-
-        viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
-            if (success) {
-                findNavController().navigate(R.id.action_studentLoginFragment_to_studentDashboardFragment)
-            }
         }
     }
 

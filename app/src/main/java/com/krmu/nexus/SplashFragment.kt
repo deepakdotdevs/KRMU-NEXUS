@@ -1,14 +1,17 @@
 package com.krmu.nexus.ui.splash
 
 import android.os.Bundle
+import android.os.Looper
 import android.se.omapi.Session
 import android.view.View
+import androidx.core.os.postDelayed
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.krmu.nexus.R
 import com.krmu.nexus.databinding.FragmentSplashBinding
 import com.krmu.nexus.utils.SessionManager
 import kotlinx.coroutines.*
+import android.os.Handler
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +36,19 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         _binding = FragmentSplashBinding.bind(view)
         sessionManager = SessionManager(requireContext())
         startAnimation()
-        navigateNext()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if(sessionManager.isLoggedIn()) {
+                when (sessionManager.getRole()) {
+                    "teacher" -> findNavController()
+                        .navigate(R.id.action_splash_to_teacherDashboard)
+                    "student" -> findNavController()
+                        .navigate(R.id.action_splash_to_studentDashboard)
+                    else -> findNavController().navigate(R.id.action_splash_to_roleSelection)
+                }
+            } else findNavController()
+                .navigate(R.id.action_splash_to_roleSelection)
+        }, 2000)
     }
     private fun startAnimation() {
         binding.logoImage.alpha = 0f
@@ -47,21 +62,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
             .setDuration(1200)
             .start()
     }
-    private fun navigateNext() {
-        CoroutineScope(Dispatchers.Main).launch {
-            delay(2000)
-            if(sessionManager.isLoggedIn()) {
-                val role = sessionManager.getRole()
-                if(role=="teacher") {
-                    findNavController().navigate(R.id.action_splash_to_teacherDashboard)
-                } else {
-                    findNavController().navigate(R.id.action_splash_to_studentDashboard)
-                }
-            } else {
-                findNavController().navigate(R.id.action_splash_to_roleSelection)
-            }
-        }
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
