@@ -101,5 +101,4 @@ class StudentLoginFragment : Fragment(R.layout.fragment_student_login) {
             }
         }
     }
-
 }
