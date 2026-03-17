@@ -10,7 +10,7 @@ This project demonstrates the implementation of **industry-level Android develop
 
 ---
 
-## 🚀 Features Implemented (Till Day 6)
+## 🚀 Features Implemented :
 
 ### 🔐 Authentication System
 
